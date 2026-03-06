@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cleanly Backend Skills
 
-## Getting Started
+A collection of production-grade backend skills for AI coding agents. Each skill provides structured guidance for a specific backend engineering concern — from writing code to auditing, hardening, and scaling it.
 
-First, run the development server:
+## Install
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx skills add S4M3R/cleanly
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Skills
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Skill | Description |
+|-------|-------------|
+| **backend-design** | Write production-grade backend code with error handling, security, performance, and observability |
+| **audit-backend** | Read-only code quality audit across security, performance, reliability, and observability |
+| **secure-backend** | OWASP Top 10 checks, dependency audit, secrets scanning, auth hardening |
+| **harden-backend** | Input validation, auth checks, rate limiting, error boundaries, defensive patterns |
+| **optimize-backend** | Detect N+1 queries, improve caching, tune connection pools, reduce latency |
+| **scale-backend** | Identify scalability bottlenecks and assess horizontal scaling readiness |
+| **observe-backend** | Structured logging, metrics, distributed tracing, health checks, alerting |
+| **test-backend** | Identify test gaps, suggest strategies, generate test scaffolding |
+| **migrate-backend** | Review migrations for zero-downtime safety, reversibility, data preservation |
+| **polish-backend** | Consistent naming, remove dead code, align patterns, improve readability |
+| **extract-backend** | Extract shared services, middleware, utilities from duplicated code |
+| **document-backend** | Generate API docs, OpenAPI specs, README files, inline documentation |
+| **explain-backend** | Explain code with Mermaid diagrams, annotated snippets, and walkthroughs |
+| **teach-backend** | One-time setup to gather stack, conventions, and infrastructure context |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+Skills are activated automatically by your AI agent when they match the current task. You can also invoke them directly:
 
-To learn more about Next.js, take a look at the following resources:
+```
+/audit-backend
+/secure-backend target=auth
+/optimize-backend
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
