@@ -216,7 +216,14 @@ code {
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   color: var(--color-accent);
   font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero-inspired {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
   margin-bottom: var(--spacing-lg);
+  font-style: italic;
 }
 
 .hero-description {
@@ -574,6 +581,39 @@ code {
 
 .skill-desc {
   font-size: 0.88rem;
+  color: var(--color-text-dim);
+  line-height: 1.55;
+}
+
+.skill-card-top {
+  margin-bottom: var(--spacing-sm);
+}
+
+.skill-example {
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.skill-example-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.skill-example-prompt {
+  font-size: 0.85rem;
+  color: var(--color-ink);
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.skill-example-result {
+  font-size: 0.8rem;
   color: var(--color-text-dim);
   line-height: 1.55;
 }
