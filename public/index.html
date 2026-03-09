@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cleanly: Production-grade backend skills for AI agents</title>
+  <meta name="description" content="14 backend skills that teach AI agents to write code that survives production. Error handling, security, performance, observability, and more.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cleanly: Backend skills for AI agents">
+  <meta property="og:description" content="14 backend skills that teach AI agents to write code that survives production.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cleanly: Backend skills for AI agents">
+  <meta name="twitter:description" content="14 backend skills that teach AI agents to write code that survives production.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <a href="https://github.com/S4M3R/cleanly" class="github-link" aria-label="View on GitHub">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+    </a>
+    <div class="hero-container">
+      <div class="hero-left">
+        <h1 class="hero-title">Cleanly</h1>
+        <p class="hero-tagline">Production-grade backend skills for AI agents</p>
+        <p class="hero-description">AI agents write code that works on the happy path. Production needs code that handles the unhappy path &mdash; malformed input, timeouts, race conditions, missing auth, N+1 queries. Cleanly teaches agents to write backend code that survives contact with real users.</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">14</span>
+            <span class="stat-label">Skills</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">7</span>
+            <span class="stat-label">Reference Docs</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">0</span>
+            <span class="stat-label">Happy-path-only code</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#install" class="btn btn-primary">Get Started</a>
+          <a href="#skills" class="btn btn-secondary">View Skills</a>
+        </div>
+
+        <div class="hero-platforms">
+          <span class="platforms-label">Works with</span>
+          <div class="platforms-row">
+            <img src="https://img.logo.dev/cursor.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Cursor" width="22" height="22" loading="lazy">
+            <img src="https://img.logo.dev/claude.ai?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Claude Code" width="22" height="22" loading="lazy">
+            <img src="https://img.logo.dev/gemini.google.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Gemini CLI" width="20" height="20" loading="lazy">
+            <img src="https://img.logo.dev/openai.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Codex CLI" width="20" height="20" loading="lazy">
+            <img src="https://img.logo.dev/github.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="VS Code Copilot" width="20" height="20" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="comparison">
+          <div class="comparison-panel comparison-before">
+            <span class="comparison-badge comparison-badge--before">Without Cleanly</span>
+            <div class="code-example code-example--bad">
+              <pre><code><span class="code-comment">// "It works on my machine"</span>
+app.post(<span class="code-string">'/users'</span>, <span class="code-keyword">async</span> (req, res) => {
+  <span class="code-keyword">const</span> user = <span class="code-keyword">await</span> db.create(req.body);
+  res.json(user);
+});</code></pre>
+              <div class="code-callouts">
+                <span class="callout" data-issue="validation">No input validation</span>
+                <span class="callout" data-issue="error">No error handling</span>
+                <span class="callout" data-issue="auth">No auth check</span>
+                <span class="callout" data-issue="response">No status code</span>
+              </div>
+            </div>
+          </div>
+          <div class="comparison-panel comparison-after">
+            <span class="comparison-badge comparison-badge--after">With Cleanly</span>
+            <div class="code-example code-example--good">
+              <pre><code>app.post(<span class="code-string">'/users'</span>,
+  authenticate,
+  validate(createUserSchema),
+  rateLimit({ max: <span class="code-number">10</span>, window: <span class="code-string">'1m'</span> }),
+  <span class="code-keyword">async</span> (req, res) => {
+    <span class="code-keyword">const</span> user = <span class="code-keyword">await</span> userService
+      .create(req.validatedBody);
+    res.status(<span class="code-number">201</span>).json({
+      data: serialize(user),
+      requestId: req.id
+    });
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="site-content" id="main-content">
+
+    <!-- THE PROBLEM -->
+    <section class="section" id="problem">
+      <div class="section-header" data-reveal>
+        <span class="section-number">01</span>
+        <h2 class="section-title">The Problem</h2>
+      </div>
+      <div class="section-content">
+        <p class="section-lead" data-reveal>AI-generated backend code has predictable failure modes. Cleanly detects and prevents all of them.</p>
+
+        <div class="problems-grid" data-reveal>
+          <div class="problem-card">
+            <span class="problem-icon">&#9888;</span>
+            <h3>Happy-Path-Only</h3>
+            <p>No error handling on external calls. No timeouts. No retry logic. No validation. No thought about what happens when things fail.</p>
+          </div>
+          <div class="problem-card">
+            <span class="problem-icon">&#128737;</span>
+            <h3>Security Negligence</h3>
+            <p>Secrets in code. String concatenation for SQL. No auth checks. No rate limiting. Rolling custom crypto instead of using libraries.</p>
+          </div>
+          <div class="problem-card">
+            <span class="problem-icon">&#9881;</span>
+            <h3>Over-Abstraction</h3>
+            <p>AbstractServiceManagerProviderFactory. Generic CRUD wrappers. Repository pattern wrapping an ORM that already IS a repository.</p>
+          </div>
+          <div class="problem-card">
+            <span class="problem-icon">&#128200;</span>
+            <h3>Data Access Sins</h3>
+            <p>N+1 queries inside loops. SELECT * everywhere. No pagination. Missing indexes. ORM .save() in a loop instead of bulk operations.</p>
+          </div>
+          <div class="problem-card">
+            <span class="problem-icon">&#128065;</span>
+            <h3>Observability Theater</h3>
+            <p>console.log as the logging strategy. No structured logging. No correlation IDs. No metrics. Logging passwords and PII.</p>
+          </div>
+          <div class="problem-card">
+            <span class="problem-icon">&#128679;</span>
+            <h3>Structural Smells</h3>
+            <p>God endpoints doing 15 things. Business logic in route handlers. Validation, logic, persistence, and HTTP mixed in one function.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section-header" data-reveal>
+        <span class="section-number">02</span>
+        <h2 class="section-title">The Skills</h2>
+      </div>
+      <div class="section-content">
+        <p class="section-lead" data-reveal>14 skills organized by concern. Each one tackles a specific dimension of backend quality.</p>
+
+        <div class="skills-categories" data-reveal>
+          <!-- Write -->
+          <div class="skill-category">
+            <h3 class="category-title category-title--write">Write</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <div class="skill-name">/backend-design</div>
+                <p class="skill-desc">Write production-grade code with error handling, security, performance, and observability baked in.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Harden -->
+          <div class="skill-category">
+            <h3 class="category-title category-title--harden">Harden</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <div class="skill-name">/secure-backend</div>
+                <p class="skill-desc">OWASP Top 10, dependency audit, secrets scanning, auth hardening, injection prevention.</p>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">/harden-backend</div>
+                <p class="skill-desc">Input validation, auth checks, rate limiting, error boundaries, defensive patterns.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Optimize -->
+          <div class="skill-category">
+            <h3 class="category-title category-title--optimize">Optimize</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <div class="skill-name">/optimize-backend</div>
+                <p class="skill-desc">Detect N+1 queries, improve caching, tune connection pools, reduce latency.</p>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">/scale-backend</div>
+                <p class="skill-desc">Identify scalability bottlenecks and assess horizontal scaling readiness.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Observe -->
+          <div class="skill-category">
+            <h3 class="category-title category-title--observe">Observe</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <div class="skill-name">/observe-backend</div>
+                <p class="skill-desc">Structured logging, metrics, distributed tracing, health checks, alerting rules.</p>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">/audit-backend</div>
+                <p class="skill-desc">Read-only audit across security, performance, reliability, and observability.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quality -->
+          <div class="skill-category">
+            <h3 class="category-title category-title--quality">Quality</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <div class="skill-name">/test-backend</div>
+                <p class="skill-desc">Identify test gaps, design strategies, generate scaffolding for unit and integration tests.</p>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">/polish-backend</div>
+                <p class="skill-desc">Consistent naming, remove dead code, align patterns, improve readability.</p>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">/extract-backend</div>
+                <p class="skill-desc">Extract shared services, middleware, utilities from duplicated code.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Operate -->
+          <div class="skill-category">
+            <h3 class="category-title category-title--operate">Operate</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <div class="skill-name">/migrate-backend</div>
+                <p class="skill-desc">Review migrations for zero-downtime safety, reversibility, data preservation.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Understand -->
+          <div class="skill-category">
+            <h3 class="category-title category-title--understand">Understand</h3>
+            <div class="skill-cards">
+              <div class="skill-card">
+                <div class="skill-name">/explain-backend</div>
+                <p class="skill-desc">Mermaid diagrams, annotated code, plain-language walkthroughs of architecture and flows.</p>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">/document-backend</div>
+                <p class="skill-desc">Generate API docs, OpenAPI specs, README files, inline documentation.</p>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">/teach-backend</div>
+                <p class="skill-desc">One-time setup to gather your stack, conventions, and infrastructure context.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="section" id="principles">
+      <div class="section-header" data-reveal>
+        <span class="section-number">03</span>
+        <h2 class="section-title">Core Principles</h2>
+      </div>
+      <div class="section-content">
+        <div class="principles-grid" data-reveal>
+          <div class="principle">
+            <span class="principle-number">01</span>
+            <h3>Fail Explicitly, Recover Gracefully</h3>
+            <p>Errors are data, not exceptions to hide. Return meaningful responses. Use circuit breakers. Serve stale cache when upstream fails.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-number">02</span>
+            <h3>Validate at the Boundary, Trust Internally</h3>
+            <p>Validate ALL external input at the entry point. Internal function calls between trusted modules should not re-validate.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-number">03</span>
+            <h3>Design for Observability from Day One</h3>
+            <p>Structured logging. Correlation IDs. Business metrics. Distributed tracing. If you can't observe it, you can't debug it.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-number">04</span>
+            <h3>Concurrency Is Not Optional</h3>
+            <p>Race conditions happen in production. Use optimistic locking. Implement idempotency keys. Use atomic operations.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-number">05</span>
+            <h3>Keep It Boring</h3>
+            <p>Prefer battle-tested patterns over clever abstractions. A straightforward if/else beats a monad chain. Optimize for the reader.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-number">06</span>
+            <h3>Optimize for the Read Path</h3>
+            <p>Most systems are read-heavy. Cache aggressively. Denormalize strategically. But always measure before optimizing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTALL -->
+    <section class="section" id="install">
+      <div class="section-header" data-reveal>
+        <span class="section-number">04</span>
+        <h2 class="section-title">Install</h2>
+        <p class="section-subtitle">One command. Every provider.</p>
+      </div>
+
+      <div class="install-terminal" data-reveal>
+        <div class="glass-terminal">
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">install</span>
+          </div>
+          <div class="terminal-body">
+            <div class="install-row">
+              <span class="install-label">All tools</span>
+              <div class="install-cmd">
+                <span class="terminal-prompt">$</span>
+                <code>npx skills add S4M3R/cleanly</code>
+                <button class="copy-btn" aria-label="Copy command" data-copy="npx skills add S4M3R/cleanly">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="install-note">Auto-detects your AI harness and installs to the right location</span>
+            </div>
+            <div class="install-divider"></div>
+            <div class="install-row">
+              <span class="install-label">Claude Code</span>
+              <div class="install-cmd">
+                <span class="terminal-prompt">$</span>
+                <code>/install-skills S4M3R/cleanly</code>
+                <button class="copy-btn" aria-label="Copy command" data-copy="/install-skills S4M3R/cleanly">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="install-note">Install directly from Claude Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="install-platforms" data-reveal>
+        <span class="platforms-label">Works with</span>
+        <div class="platform-badges">
+          <div class="platform-badge">
+            <img src="https://img.logo.dev/cursor.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Cursor" width="20" height="20" loading="lazy">
+            <span>Cursor</span>
+          </div>
+          <div class="platform-badge">
+            <img src="https://img.logo.dev/claude.ai?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Claude Code" width="20" height="20" loading="lazy">
+            <span>Claude Code</span>
+          </div>
+          <div class="platform-badge">
+            <img src="https://img.logo.dev/gemini.google.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Gemini CLI" width="20" height="20" loading="lazy">
+            <span>Gemini CLI</span>
+          </div>
+          <div class="platform-badge">
+            <img src="https://img.logo.dev/openai.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="Codex CLI" width="20" height="20" loading="lazy">
+            <span>Codex CLI</span>
+          </div>
+          <div class="platform-badge">
+            <img src="https://img.logo.dev/github.com?token=pk_dtRHfeTyRzG5zZInUc65Xw&size=64&format=png" alt="VS Code Copilot" width="20" height="20" loading="lazy">
+            <span>Copilot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="section-header" data-reveal>
+        <span class="section-number">05</span>
+        <h2 class="section-title">FAQ</h2>
+      </div>
+
+      <div class="faq-list" data-reveal>
+        <details class="faq-item">
+          <summary class="faq-question">What languages/frameworks does this work with?</summary>
+          <div class="faq-answer">
+            <p>Cleanly is language and framework agnostic. The skills teach patterns and principles that apply to Node.js, Python, Go, Rust, Java, and any backend stack. The agent adapts the guidance to whatever you're building with.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Will this slow down my AI agent?</summary>
+          <div class="faq-answer">
+            <p>No. Skills use progressive disclosure &mdash; only ~100 tokens load at startup for metadata. The full skill content loads only when the agent decides it's relevant to your task. Reference docs load on demand.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Do I need all 14 skills?</summary>
+          <div class="faq-answer">
+            <p>Install the full set. Skills are activated automatically based on what you're doing &mdash; if you're writing an endpoint, <code>backend-design</code> activates. If you're reviewing security, <code>secure-backend</code> kicks in. You don't manage them manually.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How is this different from just prompting "write production code"?</summary>
+          <div class="faq-answer">
+            <p>Prompts are vague and inconsistent. Skills provide structured, comprehensive checklists that the agent follows every time. It's the difference between "be careful" and a 50-point safety inspection.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-logo">Cleanly</span>
+        <p class="footer-tagline">Backend code that survives production.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#problem">Problem</a>
+        <a href="#skills">Skills</a>
+        <a href="#principles">Principles</a>
+        <a href="#install">Install</a>
+        <a href="https://github.com/S4M3R/cleanly">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>MIT License</span>
+      <span class="footer-divider">&middot;</span>
+      <span>Created by <a href="https://github.com/S4M3R" target="_blank" rel="noopener">S4M3R</a></span>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
