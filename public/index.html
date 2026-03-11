@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cleanly: Production-grade backend skills for AI agents</title>
   <meta name="description" content="14 backend skills that teach AI agents to write code that survives production. Error handling, security, performance, observability, and more.">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="theme-color" content="#F9F6F1">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Cleanly: Backend skills for AI agents">
@@ -18,7 +18,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -35,6 +35,7 @@
       <div class="hero-left">
         <h1 class="hero-title">Cleanly</h1>
         <p class="hero-tagline">Production-grade backend skills for AI agents</p>
+        <p class="hero-inspired">Inspired by <a href="https://impeccable.style">Impeccable</a> &mdash; design fluency for frontend. This is the backend equivalent.</p>
         <p class="hero-description">AI agents write code that works on the happy path. Production needs code that handles the unhappy path &mdash; malformed input, timeouts, race conditions, missing auth, N+1 queries. Cleanly teaches agents to write backend code that survives contact with real users.</p>
 
         <div class="hero-stats">
@@ -172,8 +173,15 @@ app.post(<span class="code-string">'/users'</span>, <span class="code-keyword">a
             <h3 class="category-title category-title--write">Write</h3>
             <div class="skill-cards">
               <div class="skill-card">
-                <div class="skill-name">/backend-design</div>
-                <p class="skill-desc">Write production-grade code with error handling, security, performance, and observability baked in.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/backend-design</div>
+                  <p class="skill-desc">Write production-grade code with error handling, security, performance, and observability baked in.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Build a REST API for user management"</p>
+                  <p class="skill-example-result">Agent adds input validation, auth middleware, proper status codes, structured logging, and error boundaries to every endpoint.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -183,12 +191,26 @@ app.post(<span class="code-string">'/users'</span>, <span class="code-keyword">a
             <h3 class="category-title category-title--harden">Harden</h3>
             <div class="skill-cards">
               <div class="skill-card">
-                <div class="skill-name">/secure-backend</div>
-                <p class="skill-desc">OWASP Top 10, dependency audit, secrets scanning, auth hardening, injection prevention.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/secure-backend</div>
+                  <p class="skill-desc">OWASP Top 10, dependency audit, secrets scanning, auth hardening, injection prevention.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Review auth for vulnerabilities"</p>
+                  <p class="skill-example-result">Finds SQL injection vectors in search, missing rate limits on login, and a hardcoded API key in config.</p>
+                </div>
               </div>
               <div class="skill-card">
-                <div class="skill-name">/harden-backend</div>
-                <p class="skill-desc">Input validation, auth checks, rate limiting, error boundaries, defensive patterns.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/harden-backend</div>
+                  <p class="skill-desc">Input validation, auth checks, rate limiting, error boundaries, defensive patterns.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Harden the payments endpoint"</p>
+                  <p class="skill-example-result">Adds Zod schema validation, 30s timeout on Stripe calls, idempotency keys for retries, rate limit of 5 req/min.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -198,12 +220,26 @@ app.post(<span class="code-string">'/users'</span>, <span class="code-keyword">a
             <h3 class="category-title category-title--optimize">Optimize</h3>
             <div class="skill-cards">
               <div class="skill-card">
-                <div class="skill-name">/optimize-backend</div>
-                <p class="skill-desc">Detect N+1 queries, improve caching, tune connection pools, reduce latency.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/optimize-backend</div>
+                  <p class="skill-desc">Detect N+1 queries, improve caching, tune connection pools, reduce latency.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Why is the dashboard slow?"</p>
+                  <p class="skill-example-result">Finds N+1 in user list (47 queries &rarr; 2), adds Redis cache for org data, suggests composite index on (org_id, created_at).</p>
+                </div>
               </div>
               <div class="skill-card">
-                <div class="skill-name">/scale-backend</div>
-                <p class="skill-desc">Identify scalability bottlenecks and assess horizontal scaling readiness.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/scale-backend</div>
+                  <p class="skill-desc">Identify scalability bottlenecks and assess horizontal scaling readiness.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Can this handle 10x traffic?"</p>
+                  <p class="skill-example-result">Flags in-memory sessions blocking horizontal scaling, single-writer DB bottleneck, and missing queue for email sends.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -213,12 +249,26 @@ app.post(<span class="code-string">'/users'</span>, <span class="code-keyword">a
             <h3 class="category-title category-title--observe">Observe</h3>
             <div class="skill-cards">
               <div class="skill-card">
-                <div class="skill-name">/observe-backend</div>
-                <p class="skill-desc">Structured logging, metrics, distributed tracing, health checks, alerting rules.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/observe-backend</div>
+                  <p class="skill-desc">Structured logging, metrics, distributed tracing, health checks, alerting rules.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Add observability to the API"</p>
+                  <p class="skill-example-result">Replaces console.log with structured JSON, adds request correlation IDs, Prometheus histograms for latency, and /health endpoint.</p>
+                </div>
               </div>
               <div class="skill-card">
-                <div class="skill-name">/audit-backend</div>
-                <p class="skill-desc">Read-only audit across security, performance, reliability, and observability.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/audit-backend</div>
+                  <p class="skill-desc">Read-only audit across security, performance, reliability, and observability.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Audit the codebase"</p>
+                  <p class="skill-example-result">Produces severity-rated report: 2 critical (SQL injection, no auth), 5 high (N+1, no timeouts), 8 medium. No code changes.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -228,16 +278,37 @@ app.post(<span class="code-string">'/users'</span>, <span class="code-keyword">a
             <h3 class="category-title category-title--quality">Quality</h3>
             <div class="skill-cards">
               <div class="skill-card">
-                <div class="skill-name">/test-backend</div>
-                <p class="skill-desc">Identify test gaps, design strategies, generate scaffolding for unit and integration tests.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/test-backend</div>
+                  <p class="skill-desc">Identify test gaps, design strategies, generate scaffolding for unit and integration tests.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"What's not tested?"</p>
+                  <p class="skill-example-result">Maps coverage gaps, finds 0 tests for payment webhooks, generates integration test stubs with fixtures and assertions.</p>
+                </div>
               </div>
               <div class="skill-card">
-                <div class="skill-name">/polish-backend</div>
-                <p class="skill-desc">Consistent naming, remove dead code, align patterns, improve readability.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/polish-backend</div>
+                  <p class="skill-desc">Consistent naming, remove dead code, align patterns, improve readability.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Clean up the services directory"</p>
+                  <p class="skill-example-result">Standardizes error format across 12 services, removes 3 dead exports, renames getUserData/fetchUser/loadUser to getUser.</p>
+                </div>
               </div>
               <div class="skill-card">
-                <div class="skill-name">/extract-backend</div>
-                <p class="skill-desc">Extract shared services, middleware, utilities from duplicated code.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/extract-backend</div>
+                  <p class="skill-desc">Extract shared services, middleware, utilities from duplicated code.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Reduce duplication in routes"</p>
+                  <p class="skill-example-result">Extracts shared auth middleware used in 8 files, consolidates 4 duplicate validation helpers into one module.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -247,8 +318,15 @@ app.post(<span class="code-string">'/users'</span>, <span class="code-keyword">a
             <h3 class="category-title category-title--operate">Operate</h3>
             <div class="skill-cards">
               <div class="skill-card">
-                <div class="skill-name">/migrate-backend</div>
-                <p class="skill-desc">Review migrations for zero-downtime safety, reversibility, data preservation.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/migrate-backend</div>
+                  <p class="skill-desc">Review migrations for zero-downtime safety, reversibility, data preservation.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Review this migration"</p>
+                  <p class="skill-example-result">Flags non-reversible column drop, suggests adding new column first + backfill + rename, checks index creation won't lock table.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -258,16 +336,37 @@ app.post(<span class="code-string">'/users'</span>, <span class="code-keyword">a
             <h3 class="category-title category-title--understand">Understand</h3>
             <div class="skill-cards">
               <div class="skill-card">
-                <div class="skill-name">/explain-backend</div>
-                <p class="skill-desc">Mermaid diagrams, annotated code, plain-language walkthroughs of architecture and flows.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/explain-backend</div>
+                  <p class="skill-desc">Mermaid diagrams, annotated code, plain-language walkthroughs of architecture and flows.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Explain the order flow"</p>
+                  <p class="skill-example-result">Generates sequence diagram from HTTP request through auth &rarr; validation &rarr; service &rarr; DB, annotates each middleware step.</p>
+                </div>
               </div>
               <div class="skill-card">
-                <div class="skill-name">/document-backend</div>
-                <p class="skill-desc">Generate API docs, OpenAPI specs, README files, inline documentation.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/document-backend</div>
+                  <p class="skill-desc">Generate API docs, OpenAPI specs, README files, inline documentation.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Generate API docs"</p>
+                  <p class="skill-example-result">Produces OpenAPI 3.1 spec with request/response examples, error codes, and auth requirements for all 23 endpoints.</p>
+                </div>
               </div>
               <div class="skill-card">
-                <div class="skill-name">/teach-backend</div>
-                <p class="skill-desc">One-time setup to gather your stack, conventions, and infrastructure context.</p>
+                <div class="skill-card-top">
+                  <div class="skill-name">/teach-backend</div>
+                  <p class="skill-desc">One-time setup to gather your stack, conventions, and infrastructure context.</p>
+                </div>
+                <div class="skill-example">
+                  <span class="skill-example-label">Example</span>
+                  <p class="skill-example-prompt">"Set up backend context"</p>
+                  <p class="skill-example-result">Scans project, detects Express + Prisma + PostgreSQL, asks about deploy targets, writes Backend Context to CLAUDE.md.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -448,6 +547,8 @@ app.post(<span class="code-string">'/users'</span>, <span class="code-keyword">a
       <span>MIT License</span>
       <span class="footer-divider">&middot;</span>
       <span>Created by <a href="https://github.com/S4M3R" target="_blank" rel="noopener">S4M3R</a></span>
+      <span class="footer-divider">&middot;</span>
+      <span>Inspired by <a href="https://impeccable.style" target="_blank" rel="noopener">Impeccable</a></span>
     </div>
   </footer>
 
